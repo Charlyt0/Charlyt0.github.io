@@ -1,0 +1,80 @@
+/* ? ----- LLEGODIA ----- */
+.llegodia {
+	width: 100%;
+	background: #EFEFEF;
+
+	min-height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	transition: .5s ease-out all;
+}
+
+.llegodia.oculta {
+	transform: translateY(100%);
+}
+
+.llegodia .header {
+	margin-bottom: 100px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+.llegodia .header .logotipo {
+	font-size: 50px;
+	font-size: 900;
+	margin-bottom: 20px;
+}
+
+.llegodia .header .mensaje {
+	font-size: 30px;
+	font-weight: 600;
+}
+
+
+/* ? ----- Cuenta Regresiva ----- */
+#cuenta {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 100px;
+}
+
+.simply-section {
+	background: #fff4e1;
+	width: 180px;
+	height: 180px;
+	margin: 20px 20px;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.simply-amount {
+	display: block;
+	font-size: 50px;
+	font-weight: 700;
+	color: #bd4c42;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.simply-word {
+	font-weight: 300;
+	font-size: 30px;
+	color: #bd4c42;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+/* ? ---------------------------- */
