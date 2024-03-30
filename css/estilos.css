@@ -78,3 +78,15 @@
 
 
 /* ? ---------------------------- */
+
+@media screen and (max-width: 480px){
+    #encabezado{
+        height: auto;
+    }
+    #contenido{
+        width: auto;
+    }
+    #barra_lateral{
+        display:none;
+    }
+}
