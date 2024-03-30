@@ -9765,11 +9765,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+
 .contenedor {
   color: #000000;
   text-align: center;
