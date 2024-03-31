@@ -43,14 +43,14 @@
 #cuenta {
 	display: flex;
 	justify-content: center;
-	margin-bottom: 100px;
+	margin-bottom: 20px;
 }
 
 .simply-section {
 	background: #fff4e1;
-	width: 180px;
-	height: 180px;
-	margin: 20px 20px;
+	width: 80px;
+	height: 80px;
+	margin: 10px 10px;
 	border-radius: 5px;
 	display: flex;
 	align-items: center;
@@ -78,15 +78,3 @@
 
 
 /* ? ---------------------------- */
-
-@media screen and (max-width: 480px){
-    #encabezado{
-        height: auto;
-    }
-    #contenido{
-        width: auto;
-    }
-    #barra_lateral{
-        display:none;
-    }
-}
