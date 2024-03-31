@@ -47,7 +47,7 @@
 }
 
 .simply-section {
-	background: #fff4e1;
+	background: #ffbba8;
 	width: 80px;
 	height: 80px;
 	margin: 10px 10px;
@@ -69,8 +69,8 @@
 
 .simply-word {
 	font-weight: 300;
-	font-size: 20px;
-	color: #bd4c42;
+	font-size: 15px;
+	color: #821417;
 	display: flex;
 	align-items: center;
 	justify-content: center;
