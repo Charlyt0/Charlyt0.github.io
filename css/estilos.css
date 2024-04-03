@@ -1,7 +1,6 @@
 /* ? ----- LLEGODIA ----- */
-.llegodia {
+.portadas {
 	width: 100%;
-	background: #EFEFEF;
 
 	min-height: 100vh;
 	position: fixed;
@@ -17,27 +16,26 @@
 	transition: .5s ease-out all;
 }
 
-.llegodia.oculta {
+.portadas.oculta {
 	transform: translateY(100%);
 }
 
-.llegodia .header {
+.portadas .header {
 	margin-bottom: 100px;
 	text-transform: uppercase;
 	letter-spacing: 3px;
 }
 
-.llegodia .header .logotipo {
+.portadas .header .logotipo {
 	font-size: 50px;
 	font-size: 900;
 	margin-bottom: 20px;
 }
 
-.llegodia .header .mensaje {
+.portadas .header .mensaje {
 	font-size: 30px;
 	font-weight: 600;
 }
-
 
 /* ? ----- Cuenta Regresiva ----- */
 #cuenta {
