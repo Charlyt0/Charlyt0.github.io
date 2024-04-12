@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario de Canciones</title>
+</head>
+<body>
+
+<h2>Formulario de Canciones</h2>
+
+<form id="cancionesForm">
+  <label for="personas">Personas:</label>
+  <input type="text" id="personas" name="personas"><br><br>
+  
+  <label for="cancion1">Canción 1:</label>
+  <input type="text" id="cancion1" name="cancion1"><br><br>
+  
+  <label for="cancion2">Canción 2:</label>
+  <input type="text" id="cancion2" name="cancion2"><br><br>
+  
+  <button type="submit">Guardar</button>
+</form>
+
+<script>
+document.getElementById("cancionesForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
+  
+  // Obtener los valores de los campos del formulario
+  var personas = document.getElementById("personas").value;
+  var cancion1 = document.getElementById("cancion1").value;
+  var cancion2 = document.getElementById("cancion2").value;
+  
+  // Crear un objeto con los datos del formulario
+  var formData = {
+    personas: personas,
+    cancion1: cancion1,
+    cancion2: cancion2
+  };
+  
+  // Enviar los datos al servidor utilizando AJAX
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "guardar_datos.php", true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      console.log("Los datos han sido enviados correctamente");
+      // Puedes hacer algo aquí después de que los datos se guarden en la base de datos
+    }
+  };
+  xhr.send(JSON.stringify(formData));
+});
+</script>
+
+</body>
+</html>
