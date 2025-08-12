@@ -1,80 +1,21 @@
-
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Invitación - 15 Años</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tr-Carta</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Pantalla del sobre -->
-  <div id="envelope-screen" class="centered">
-    <div class="overlay-bg"></div>
-    <div id="envelope" class="envelope" role="button" aria-label="Abrir invitación" tabindex="0">
-      <div class="env-back"></div>
-      <div class="env-body">
-        <div class="paper-inner"></div>
-        <div class="stripe gold-stripe"></div>
-      </div>
-      <div class="env-flap">
-        <div class="flap-inner"></div>
-        <div class="seal"></div>
-      </div>
-      <div class="shine"></div>
-    </div>
-    <p class="open-hint">Haz click en el sobre para abrir la invitación</p>
-  </div>
-
-  <!-- Contenido principal invisible hasta abrir -->
-  <main id="invite" class="hidden">
-    <button id="music-btn" class="music-btn" aria-label="Play music">🎵</button>
-    <audio id="bg-music" loop>
-      <source src="assets/musica.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="pop" preload="auto">
-      <source src="assets/pop.mp3" type="audio/mpeg">
-    </audio>
-
-    <header class="hero">
-      <div class="hero-bg" style="background-image:url('assets/foto-portada.jpg')"></div>
-      <div class="hero-content">
-        <h1>Sofía</h1>
-        <p>Mis 15 Años</p>
-        <div id="countdown" class="countdown">
-          <div class="count-box"><span id="days">00</span><small>Días</small></div>
-          <div class="count-box"><span id="hours">00</span><small>Horas</small></div>
-          <div class="count-box"><span id="minutes">00</span><small>Min</small></div>
-          <div class="count-box"><span id="seconds">00</span><small>Seg</small></div>
+    <h1 class="text-clamp">Desliza hacia abajo😉</h1>
+    <div class="grid-template">
+        <div class="envelope">
+            <div class="flap"></div>
+            <div class="heart"></div>
+            <div class="face"></div>
+            <p class="text-show">Te Quiero Mucho</p>
         </div>
-      </div>
-    </header>
-
-    <section class="details">
-      <h2>Detalles del Evento</h2>
-      <p>📅 <b>Fecha:</b> <span id="ev-date">25 de Octubre 2025</span></p>
-      <p>⏰ <b>Hora:</b> <span id="ev-time">21:00 hs</span></p>
-      <p>📍 <b>Lugar:</b> Salón Bellavista, Ciudad</p>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18..." allowfullscreen loading="lazy"></iframe>
-    </section>
-
-    <section class="rsvp">
-      <h2>Confirma tu Asistencia</h2>
-      <p>Por favor completa el formulario.</p>
-      <a class="btn" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Confirmar Asistencia</a>
-    </section>
-
-    <section class="dress">
-      <h2>Código de Vestimenta</h2>
-      <p>Formal Elegante 🎀</p>
-    </section>
-
-    <footer>
-      <p>Con cariño, Sofía 💖</p>
-    </footer>
-  </main>
-
-  <script src="js/main.js"></script>
+    </div>
+    
 </body>
 </html>
