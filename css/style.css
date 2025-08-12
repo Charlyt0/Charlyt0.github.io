@@ -1,78 +1,70 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #f8e9f4, #fef9ff);
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+:root{
+  --gold-1: #f7d794;
+  --gold-2: #e6b800;
+  --accent: #c2185b;
+  --bg: linear-gradient(180deg,#fff 0%,#fff8fb 100%);
+  --paper: #fffefc;
 }
 
-.centered {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:#222}
+.overlay-bg{position:fixed;inset:0;background:radial-gradient(ellipse at center, rgba(0,0,0,0.25), rgba(0,0,0,0.6));backdrop-filter: blur(2px);}
 
-.envelope {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    background: #e0c4ff;
-    cursor: pointer;
-    perspective: 1000px;
-}
+.centered{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;pointer-events:auto}
+.open-hint{color:rgba(255,255,255,0.95);margin-top:18px;font-weight:600;z-index:1001;letter-spacing:0.6px}
 
-.flap {
-    position: absolute;
-    width: 100%;
-    height: 100px;
-    background: #c89eff;
-    transform-origin: top;
-    transition: transform 1s;
-    z-index: 2;
-}
+/* Envelope container */
+.envelope{width:360px;height:240px;position:relative;transform-style:preserve-3d;cursor:pointer;transition:transform 1s cubic-bezier(.2,.9,.3,1);perspective:1200px}
+.env-back{position:absolute;inset:0;border-radius:14px;background:linear-gradient(180deg,#f7f0e6,#fff9f5);box-shadow:0 30px 60px rgba(0,0,0,0.35);transform:translateZ(-10px)}
 
-.pocket {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #e0c4ff;
-    z-index: 1;
-}
+/* Body */
+.env-body{position:absolute;left:8px;right:8px;top:40px;bottom:12px;border-radius:10px;background:linear-gradient(180deg,var(--paper),#fff);overflow:hidden;border:2px solid rgba(0,0,0,0.06) }
+.paper-inner{position:absolute;inset:12px;border-radius:8px;background-image:repeating-linear-gradient(0deg, rgba(0,0,0,0.02) 0 1px, transparent 1px 12px), linear-gradient(180deg,#fff,#fff4fb);}
+.gold-stripe{position:absolute;left:0;top:0;height:12px;width:100%;background:linear-gradient(90deg,var(--gold-1),var(--gold-2));box-shadow:0 4px 12px rgba(230,180,30,0.35);opacity:0.95;}
 
-.letter {
-    position: absolute;
-    top: 20px;
-    left: 10px;
-    right: 10px;
-    height: 160px;
-    background: white;
-    text-align: center;
-    padding: 20px;
-    box-sizing: border-box;
-    z-index: 0;
-    transition: transform 1s;
-}
+/* Flap */
+.env-flap{position:absolute;left:0;right:0;top:0;height:120px;border-radius:14px 14px 0 0;transform-origin:top center;background:linear-gradient(180deg,#fff7ee,#fff1e6);box-shadow:inset 0 -12px 40px rgba(0,0,0,0.12);transition:transform 0.9s cubic-bezier(.2,.9,.3,1);z-index:8;overflow:visible}
+.flap-inner{position:absolute;inset:0;border-radius:14px;background:linear-gradient(180deg,#fffaf3,#fff0e9);clip-path:path('M0,120 Q180,-40 360,120 L360,120 L0,120');}
+/* Decorative embossed fold */
+.env-flap::before{content:'';position:absolute;left:50%;top:86%;transform:translateX(-50%) rotate(1deg);width:220px;height:120px;background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(0,0,0,0.02));filter:blur(6px);opacity:0.45;border-radius:50%}
 
-.hidden {
-    display: none;
-}
+/* Seal */
+.seal{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:78px;height:78px;border-radius:50%;background:radial-gradient(circle at 30% 20%, #ffd97a, #c68a00);box-shadow:0 6px 16px rgba(198,138,0,0.25), inset 0 -6px 18px rgba(0,0,0,0.18);z-index:9;border:3px solid rgba(255,255,255,0.25);}
+.seal::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:conic-gradient(from 90deg, rgba(255,255,255,0.14), rgba(255,255,255,0));mix-blend-mode:overlay;}
 
-.invitation-card {
-    background: white;
-    padding: 20px;
-    max-width: 500px;
-    margin: auto;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
-}
+/* Shine animation */
+.shine{position:absolute;inset:0;border-radius:14px;pointer-events:none;background:linear-gradient(120deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.18) 40%, rgba(255,255,255,0.0) 80%);transform:translateX(-120%);transition:transform 1.8s ease}
+.envelope:hover .shine{transform:translateX(120%)}
 
-.open .flap {
-    transform: rotateX(-180deg);
-}
+/* Open state */
+.envelope.open{transform:translateY(-30px) rotateX(8deg)}
+.envelope.open .env-flap{transform:rotateX(-180deg);box-shadow:none}
+.envelope.open .seal{transform:translate(-50%,-220%) scale(0.6);opacity:0}
+.envelope.open .paper-inner{transform:translateY(-26%);transition:transform 1s ease 0.2s}
 
-.open .letter {
-    transform: translateY(-200px);
+/* hide screen after open */
+#envelope-screen.hidden{display:none;opacity:0;transition:opacity .8s}
+
+/* invite page styles */
+.hidden{display:none}
+main{padding-bottom:60px}
+.hero{height:72vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(0.55) saturate(1.05)}
+.hero-content{position:relative;color:white;text-align:center;padding:20px;z-index:2}
+.hero-content h1{font-family:'Great Vibes',cursive;font-size:4rem;margin:0}
+.hero-content p{font-size:1.2rem;margin:6px 0 16px}
+.countdown{display:flex;gap:14px;justify-content:center}
+.count-box{background:rgba(255,255,255,0.92);padding:8px 14px;border-radius:10px;min-width:64px}
+.count-box span{display:block;font-weight:700;color:var(--accent);font-size:1.2rem}
+.count-box small{display:block;font-size:0.8rem;color:#333}
+section{max-width:900px;margin:40px auto;padding:0 16px;text-align:center}
+h2{font-family:'Great Vibes',cursive;color:var(--accent);font-size:2.2rem;margin-bottom:10px}
+.btn{display:inline-block;padding:12px 22px;border-radius:28px;background:linear-gradient(45deg,var(--accent),#ff80ab);color:#fff;text-decoration:none;font-weight:600}
+.music-btn{position:fixed;top:18px;right:18px;background:linear-gradient(180deg,rgba(255,255,255,0.95),rgba(255,255,255,0.85));border:0;padding:10px 12px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,0.12);cursor:pointer}
+
+/* small screen adjustments */
+@media(max-width:600px){
+  .envelope{width:300px;height:200px}
+  .hero-content h1{font-size:2.6rem}
 }
