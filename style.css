@@ -19,6 +19,7 @@
 }
 
 body{
+    background-color: #ae7f7d;
     height: 1000vh;
 }
 
@@ -90,23 +91,32 @@ body{
     z-index: 3;
 }
 
-.heart{
-    --c: red;
-    position: absolute;
-    width: 50cqw;
-    left: 50%;
-    top: 0;
-    transform: translateY(var(--progress));
-    animation: show-heart ease both;
-    animation-timeline: scroll();
-    animation-range: 60%;
-    margin-left: -25cqw;
-    aspect-ratio: 1/1;
-    z-index: 3;
-    background:  radial-gradient(at 70% 31%, var(--c) 29%,#0000 30%),
-                 radial-gradient(at 30% 31%, var(--c) 29%, #0000 30%),
-                 conic-gradient(from -45deg at 50% 84%, var(--c)90deg,#0000 0)
-                 bottom/100% 50% no-repeat;
+.sello {
+  position: absolute;
+  top: 0;       /* arriba */
+  right: 0;     /* derecha */
+  width: 50px;  /* tamaño del sello, ajusta según convenga */
+  height: 50px;
+  transform: translate(50%, -50%); /* lo saca un poco fuera de la solapa para que parezca enganchado */
+  z-index: 10;  /* que quede arriba */
+  pointer-events: none; /* para que no interfiera al hacer click */
+}
+
+.heart {
+--c: #FFD700;
+position: absolute;
+width: 46cqw; /* parece que querías usar cqw, que no es estándar, ¿quizás querías vw? */
+left: 50%;
+top: 0;
+transform: translateY(var(--progress));
+animation: show-heart ease both;
+animation-timeline: scroll();
+animation-range: 60%;
+margin-left: -23cqw; /* igual aquí, probablemente margin-left: -25vw */
+aspect-ratio: 1 / 1;
+z-index: 3;
+background: var(--c) url(Sin_título.png) center/cover no-repeat;
+border-radius: 12px; /* para que sea un rectángulo sin bordes redondeados */
 }
 
 @keyframes animate-flap{
